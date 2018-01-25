@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Gabriel Nadler",
+      "authorEmail": "nadlergabriel@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}
