@@ -36,7 +36,6 @@ class TranslationKeyTypeGenerator {
 
   public apply(compiler: Compiler) {
     compiler.plugin('before-compile', async (compilation, cb) => {
-      console.log(compilation);
       try {
         const content: string = (await Promise.all(this.files.map(file => this.generate(file)))).join('\n');
         const oldContent = await readFile(this.outputFile);
@@ -47,7 +46,6 @@ class TranslationKeyTypeGenerator {
       } catch (err) {
         console.error('error while writing: ', err);
       }
-
     });
   }
 }
