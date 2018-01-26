@@ -33,7 +33,7 @@ Then you just need to include the type definition file with a reference path and
 
 ## License
 
-MIT © [Gabriel Nadler]()
+MIT © [Gabriel Nadler](https://github.com/Tyderion)
 
 
 [npm-image]: https://badge.fury.io/js/webpack-typescript-json-type.svg

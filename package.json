@@ -2,11 +2,11 @@
   "name": "webpack-typescript-json-type",
   "version": "1.0.0",
   "description": "Generates a type with all json paths for the configured files",
-  "homepage": "",
+  "homepage": "https://github.com/Tyderion",
   "author": {
     "name": "Gabriel Nadler",
     "email": "nadlergabriel@gmail.com",
-    "url": ""
+    "url": "https://github.com/Tyderion"
   },
   "files": [
     "lib", "dist"
