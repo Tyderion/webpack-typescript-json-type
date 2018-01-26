@@ -31,6 +31,28 @@ then use it in the plugins section of your config:
 This will produce to ambient types `SomeTypeName` and `ADifferentTypeName` in the specified file.
 Then you just need to include the type definition file with a reference path and you're good to go `/// <reference path="path/to/jsontypes.d.ts"/>` or include it differently.
 
+## Example
+Consider the following file structure (maybe used as a translation file in a webproject).
+```json
+{
+   "MAIN": {
+      "TITLE": "Main",
+      "WELCOME": "Welcome Message"
+    },
+    "ABOUT": {
+      "TITLE": "About"
+    }
+}
+```
+
+In most i18n implementations these translations can be used in the form `MAIN.TITLE` or `ABOUT.TITLE`. 
+Using `webpack-typescript-json-type` with the above file content (giving it the name `TranslationKey`) will produce the following type: 
+```typescript
+declare type TranslationKey = 'MAIN.TITLE' | 'MAIN.WELCOME' | 'ABOUT.TITLE';
+```
+
+This type then allows your IDE to autocomplete translation keys if typed correctly.
+
 ## License
 
 MIT © [Gabriel Nadler](https://github.com/Tyderion)
