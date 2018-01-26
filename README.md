@@ -4,16 +4,33 @@
 ## Installation
 
 ```sh
-$ npm install --save webpack-typescript-json-type
+$ npm install --save-dev webpack-typescript-json-type
 ```
 
 ## Usage
 
 ```js
-const webpackTypescriptJsonType = require('webpack-typescript-json-type');
-
-webpackTypescriptJsonType('Rainbow');
+const path = require('path');
+const TranslationKeyTypeGenerator = require('webpack-typescript-json-type');
 ```
+then use it in the plugins section of your config: 
+```js
+{
+  plugins: [
+    new TranslationKeyTypeGenerator({ 
+      files: [
+        { path: path.resolve(__dirname, './path/to/your/json.json'), class: 'SomeTypeName' },
+        { path: path.resolve(__dirname, './path/to/your/different.json.json'), class: 'ADifferentTypeName' },
+      ], 
+      output: path.resolve(__dirname, 'typings_custom'),
+      typefile: 'optional.d.ts' // Defaults to jsontypes.d.ts
+    })
+}
+```
+
+This will produce to ambient types `SomeTypeName` and `ADifferentTypeName` in the specified file.
+Then you just need to include the type definition file with a reference path and you're good to go `/// <reference path="path/to/jsontypes.d.ts"/>` or include it differently.
+
 ## License
 
 MIT © [Gabriel Nadler]()
