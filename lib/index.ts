@@ -27,19 +27,22 @@ class TranslationKeyTypeGenerator {
     this.files = options.files;
   }
 
-  private async generate(config: IFileDef) {
+  private async generate(config: IFileDef): Promise<string> {
     const content = await readFile(config.path);
     let allKeys = generateKeys(JSON.parse(content));
-    let translationKeyType = `declare type ${config.class} = ${allKeys.map(s => `'${s}'`).join(' | ')}\n`;
-    return await appendFile(this.outputFile, '\n' + translationKeyType);
+    let translationKeyType = `declare type ${config.class} = ${allKeys.map(s => `'${s}'`).join(' | ')}`;
+    return translationKeyType;
   }
 
   public apply(compiler: Compiler) {
     compiler.plugin('before-compile', async (compilation, cb) => {
       console.log(compilation);
       try {
-        await writeFile(this.outputFile, '');
-        await Promise.all(this.files.map(file => this.generate(file)));
+        const content: string = (await Promise.all(this.files.map(file => this.generate(file)))).join('\n');
+        const oldContent = await readFile(this.outputFile);
+        if (content !== oldContent) {
+          await writeFile(this.outputFile, content);
+        }
         cb();
       } catch (err) {
         console.error('error while writing: ', err);
