@@ -6,7 +6,6 @@ import * as path from 'path';
 
 interface IOptions {
   output: string;
-  outputfile: string;
   files: IFileDef[];
   typefile?: string;
 }
