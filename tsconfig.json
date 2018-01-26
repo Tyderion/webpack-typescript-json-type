@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "importHelpers": true,
+    "outDir": "dist",
+    "lib": [
+      "es2017"
+    ],
+    // Be strict
+    "alwaysStrict": true,
+    "strict": true,
+    "noImplicitAny": false,
+    // For i18next and any other module with default export error
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "static"
+  ]
+}
+
