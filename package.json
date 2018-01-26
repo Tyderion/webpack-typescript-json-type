@@ -1,32 +1,35 @@
 {
   "name": "webpack-typescript-json-type",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Generates a type with all json paths for the configured files",
-  "homepage": "",
+  "homepage": "https://github.com/Tyderion",
   "author": {
     "name": "Gabriel Nadler",
     "email": "nadlergabriel@gmail.com",
-    "url": ""
+    "url": "https://github.com/Tyderion"
   },
   "files": [
-    "lib"
+    "lib",
+    "dist"
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "keywords": [
     "typescript",
     "webpack",
     "i18n"
   ],
   "devDependencies": {
-    "nsp": "^2.6.3",
+    "@types/node": "^9.4.0",
     "eslint": "^4.1.0",
-    "prettier": "^1.7.0",
-    "husky": "^0.14.3",
-    "lint-staged": "^4.2.1",
     "eslint-config-prettier": "^2.4.0",
-    "eslint-plugin-prettier": "^2.2.0",
     "eslint-config-xo": "^0.18.2",
-    "jest": "^22.0.6"
+    "eslint-plugin-prettier": "^2.2.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.6",
+    "lint-staged": "^4.2.1",
+    "nsp": "^2.6.3",
+    "prettier": "^1.7.0",
+    "typescript": "^2.6.2"
   },
   "scripts": {
     "prepublish": "nsp check",
@@ -66,9 +69,15 @@
       "prettier"
     ]
   },
-  "repository": "Tyderion/webpack-typescript-json-type",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:Tyderion/webpack-typescript-json-type.git"
+  },
   "jest": {
     "testEnvironment": "node"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
 }
